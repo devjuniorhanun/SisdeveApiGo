@@ -4,12 +4,10 @@ import (
 	"database/sql"
 	"log/slog"
 
-	env "github.com/devjuniorhanun/SisdeveApiGo/config"
+	"github.com/devjuniorhanun/SisdeveApiGo/config/env"
 	_ "github.com/lib/pq"
 )
 
-// Função NewDBConnection()
-// Responsável por iniciar uma conexão com o postgreSQL e retornar um ponteiro dessa conexão
 func NewDBConnection() (*sql.DB, error) {
 	postgresURI := env.Env.DatabaseURL
 	db, err := sql.Open("postgres", postgresURI)
